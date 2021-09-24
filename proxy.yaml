@@ -1,0 +1,19 @@
+---
+- name : Enable proxy to DMZ
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy module 1st line
+      copy:
+        dest: /etc/apt/apt.conf.d/02proxy
+        src: 02proxy
+    - name: copy sources
+      copy:
+        dest: /etc/apt/sources.list
+        src: sources.list
+      when: ansible_os_family == 'Debian'
+    - name: copy sources ubuntu
+      copy:  
+        dest: /etc/apt/sources.list
+        src: /etc/apt/sources.list
+      when: ansible_os_family == 'Ubuntu'

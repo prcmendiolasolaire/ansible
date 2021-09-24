@@ -1,0 +1,15 @@
+---
+- name : Enable and sync with systemd-timesyncd
+  hosts: unifiedwalletservers
+  become: yes
+  tasks:
+
+    - name: Idempotent approach with copy module
+      copy:
+        dest: /etc/systemd/timesyncd.conf
+        content: "NTP=10.0.25.8\n"
+    - name: Start and enable systemd-timesyncd
+      service:
+        name: systemd-timesyncd.service
+        enabled: yes
+        state: started

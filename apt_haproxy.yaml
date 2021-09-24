@@ -1,0 +1,14 @@
+---
+- name : haproxy on debian
+  hosts: all
+  become: yes
+  tasks:
+    
+    - name: Start and enable haproxy
+      apt:
+        name: haproxy
+        state: latest
+    - name: Start and enable etcd
+      apt:
+        name: etcd
+        state: latest 

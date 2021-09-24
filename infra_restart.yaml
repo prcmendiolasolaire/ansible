@@ -1,0 +1,27 @@
+---
+- name : Enable and sync with systemd-timesyncd
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy module 1st line
+      copy:
+        src: timesyncd.conf
+        dest: /etc/systemd/timesyncd.conf
+    - name: set timezone to Asia/Manila
+      timezone:
+        name: Asia/Manila
+    - name : Get timesyncd status
+      command: /usr/bin/systemctl is-active systemd-timesyncd.service
+      ignore_errors: yes
+      register: result
+
+    - name: Start and enable systemd-timesyncd
+      service:
+        name: systemd-timesyncd.service
+        state: restarted
+      when: result.rc == 0 
+    
+    - name: Start and enable open-vm-tools
+      apt:
+        name: open-vm-tools
+        state: latest 

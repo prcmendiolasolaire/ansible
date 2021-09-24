@@ -1,0 +1,10 @@
+---
+- name : apache on debian
+  hosts: all
+  become: yes
+  tasks:
+    
+    - name: Start and enable apache2
+      apt:
+        name: apache2
+        state: latest 

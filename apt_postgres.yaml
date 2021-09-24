@@ -1,0 +1,10 @@
+---
+- name :  postgresql debian/ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    
+    - name: Start and enable postgresql
+      apt:
+        name: postgresql
+        state: latest 

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: mount NFS
+    mount:
+      path: /NFS
+      src: 10.0.10.35:/NFS
+      fstype: ext4
+      opts: noatime
+      state: mounted
+  - name: mount NFS2
+    mount:
+      path: /NFS2
+      src: 10.0.10.36:/NFS2
+      fstype: ext4
+      opts: noatime
+      state: mounted
