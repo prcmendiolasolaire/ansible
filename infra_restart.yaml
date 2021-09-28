@@ -6,7 +6,7 @@
     - name: copy module 1st line
       copy:
         dest: /etc/systemd/timesyncd.conf
-        content: "NTP=10.0.25.8\n"
+        content: 'NTP=10.0.25.8\n'
     - name: set timezone to Asia/Manila
       timezone:
         name: Asia/Manila
