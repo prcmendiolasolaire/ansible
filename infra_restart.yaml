@@ -8,7 +8,7 @@
         dest: /etc/systemd/timesyncd.conf
         content: 'NTP=10.0.25.8\n'
     - name: set timezone to Asia/Manila
-      timezone:
+      community.general.timezone:
         name: 'Asia/Manila'
     - name : Get timesyncd status
       command: /usr/bin/systemctl is-active systemd-timesyncd.service
