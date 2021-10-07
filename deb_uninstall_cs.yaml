@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+  - role: crowdstrike.falcon.falcon_installation
+  vars:
+    falcon_uninstall: true

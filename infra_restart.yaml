@@ -5,13 +5,13 @@
   tasks:
     - name: copy module 1st line
       copy:
+        src: timesyncd.conf
         dest: /etc/systemd/timesyncd.conf
-        content: 'NTP=10.0.25.8\n'
     - name: set timezone to Asia/Manila
-      community.general.timezone:
-        name: 'Asia/Manila'
+      timezone:
+        name: Asia/Manila
     - name : Get timesyncd status
-      command: /usr/bin/systemctl is-active systemd-timesyncd.service
+      command: /bin/systemctl is-active systemd-timesyncd.service
       ignore_errors: yes
       register: result
 
