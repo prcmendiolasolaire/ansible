@@ -1,0 +1,23 @@
+- hosts: all
+  become: yes
+  ignore_errors: true
+  tasks:
+  - name: Copy CS installer over
+    copy:
+      src: /home/linuxadm/ansible/files/falcon-sensor-6.30.0-12704.el7.x86_64.rpm
+      dest: /tmp/
+  - name: Install the CrowdStrike Package
+    shell: rpm -i /tmp/falcon-sensor-6.30.0-12704.el7.x86_64.rpm
+  - name: Set the CID
+    shell: /opt/CrowdStrike/falconctl -s -f --cid=4F797CA7DAAC4655B42A7A69C6257D82-49
+    ignore_errors: true
+  - name: Start the agent
+    shell: systemctl start falcon-sensor
+  - name: set CS proxy
+    shell: /opt/CrowdStrike/falconctl -s --aph=192.168.25.42 --app=4188
+  - name: set CS proxy 2
+    shell: /opt/CrowdStrike/falconctl -g --aph --app
+  - name: set CS proxy 3
+    shell: /opt/CrowdStrike/falconctl -s --apd=FALSE
+  - name: reStart the agent
+    shell: systemctl restart falcon-sensor

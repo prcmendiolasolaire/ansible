@@ -1,0 +1,9 @@
+---
+- name : Enable and sync with systemd-timesyncd
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy module 1st line
+      copy:
+        content: "Managed by Solaire IT\n"
+        dest: /etc/motd

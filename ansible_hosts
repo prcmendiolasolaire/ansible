@@ -1,0 +1,147 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers.
+
+#green.example.com
+#blue.example.com
+#192.168.100.1
+#192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+#[webservers]
+#alpha.example.org
+#beta.example.org
+#192.168.1.100
+#192.168.1.110
+
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+
+#www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+#[dbservers]
+#
+#db01.intranet.mydomain.net
+#db02.intranet.mydomain.net
+#10.25.1.56
+#10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+#db-[99:101]-node.example.com
+[KONG]
+SVPLKDB1
+SVPLKDB2
+SVPLKHP1
+SVPLKHP2
+SVPLKNG1
+SVPLKNG2
+SVPLUNS1
+SVSLUNS1
+[OKTA]
+SVPLOLP1
+[unifiedwallet]
+SVPLIMG1
+SVPLIMG2
+SVPLUWS1 ansible_host=10.0.10.31
+SVPLUWS2 ansible_host=10.0.10.32
+[anthos]
+SVPLAAW1 ansible_host=10.0.13.21
+SVPLACP1 ansible_host=10.0.13.22
+SVPLACP2 ansible_host=10.0.13.23
+SVPLACP3 ansible_host=10.0.13.24
+SVPLIGS1 ansible_host=10.0.13.61		
+SVPLAPA2 ansible_host=10.0.13.62	
+SVPLUCP1 ansible_host=10.0.13.63	
+SVPLUCP2 ansible_host=10.0.13.64	
+SVPLUCP3 ansible_host=10.0.13.65	
+SVPLUCN1 ansible_host=10.0.13.66	
+SVPLUCN2 ansible_host=10.0.13.67	
+SVPLUCN3 ansible_host=10.0.13.68	
+SVPLAPA1 ansible_host=10.0.13.25	
+SVPLSLB1 ansible_host=10.0.13.70	
+SVPLSLB2 ansible_host=10.0.13.71
+[igaming]
+SVPLIGS1 ansible_host=10.0.13.61
+SVPLIGS2 ansible_host=10.0.13.60
+[rabbitmq]
+SVPLRMQ1 ansible_host=10.0.24.24
+[solairecluster]
+SVPLLSD6 ansible_host=10.0.13.26	
+SVPLLSD7 ansible_host=10.0.13.27
+SVPLLSD8 ansible_host=10.0.13.28
+SVPLLSD11 ansible_host=10.0.13.11
+SVPLLSD12 ansible_host=10.0.13.12
+
+
+[stagecluster]
+SVPLLSD13 ansible_host=10.0.13.13
+SVPLLSD14 ansible_host=10.0.13.14
+
+[ANSIBLE_MASTER]
+SVPLANS1
+
+[unified5.2]
+SVPLIMG3 ansible_host=10.0.10.81
+SVPLIMG4 ansible_host=10.0.10.82
+SVPLUNS2 ansible_host=10.0.10.79
+SVPLUWI2 ansible_host=10.0.10.78
+SVPLUWS4 ansible_host=10.0.10.75
+SVPLUWS5 ansible_host=10.0.10.76
+SVPLUWS6 ansible_host=10.0.10.77
+
+[squidproxy]
+SVPLPXY2 ansible_host=192.168.24.59
+SVPLPXY3 ansible_host=192.168.24.62
+SVPLCSG1 ansible_host=192.168.25.42
+SVSLWPXY ansible_host=192.168.25.40
+SVQLPXY1 ansible_host=192.168.24.40
+
+[paltronics]
+SVPLPAP2 ansible_host=10.0.32.10
+SVPLPCA4 ansible_host=10.0.32.11
+SVPLPCA5 ansible_host=10.0.32.12
+SVPLPCA6 ansible_host=10.0.32.13
+SVPLPDB3 ansible_host=10.0.32.16
+SVPLPDB4 ansible_host=10.0.32.15
+
+[sendgames]
+SVPLSNG1 ansible_host=10.0.13.42
+SVPLFGW1 ansible_host=192.168.24.81
+SVPLPSG1 ansible_host=10.0.24.148
+
+[esb]
+SVPLMTR1 ansible_host=10.0.24.170
+SVPLAPP1 ansible_host=10.0.24.171
+SVPLCSE1 ansible_host=10.0.24.173
+SVPLAPM2 ansible_host=10.0.24.174
+SVPLISR3 ansible_host=10.0.24.176
+SVPLTCT2 ansible_host=10.0.24.177
+SVPLUMS2 ansible_host=10.0.24.178
+SVPLUMS3 ansible_host=10.0.24.179
+SVPLCIC1 ansible_host=10.0.24.198
+SVPLESB7 ansible_host=10.0.24.167
+SVPLESB8 ansible_host=10.0.24.168
+SVPLESB1 ansible_host=10.0.24.184
+SVPLESB2 ansible_host=10.0.24.185
+SVPLESB3 ansible_host=10.0.24.186
+SVPLESB4 ansible_host=10.0.24.187
+SVPLESB5 ansible_host=10.0.24.188
+SVPLTRG1 ansible_host=10.0.24.197
+SVPLAPG1 ansible_host=192.168.24.38
+SVPLAPG2 ansible_host=192.168.24.39
+SVPLPXY2 ansible_host=192.168.24.59
+SVPLPXY3 ansible_host=192.168.24.62
+
